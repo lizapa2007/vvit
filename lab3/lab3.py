@@ -1,6 +1,6 @@
 # Лабораторная работа №3. Функции в Python и базовые алгоритмы
 
-# ===== Задание 1: Создание и вызов функций =====
+# Задание 1: Создание и вызов функций
 def greet(name):
     print(f"Привет, {name}")
 
@@ -21,7 +21,7 @@ print("Квадрат 12:", square(12))
 print("Максимум из 3 и 7:", max_of_two(3, 7))
 print("Максимум из 10 и 4:", max_of_two(10, 4))
 
-# ===== Задание 2: Аргументы и возвращаемые значения =====
+# Задание 2: Аргументы и возвращаемые значения
 def calculate_rectangle(width, height):
     return width * height
 
@@ -42,7 +42,7 @@ describe_rectangle(6, 2)
 print()
 describe_rectangle(11, 9, unit="м")
 
-# ===== Задание 3: Области видимости переменных =====
+# Задание 3: Области видимости переменных
 value = 10
 
 
@@ -58,7 +58,7 @@ print(value)
 # Обращение к локальной переменной снаружи функции -> NameError
 # print(local)
 
-# ===== Задание 4: Работа со списками =====
+# Задание 4: Работа со списками
 numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 print(numbers[0])
@@ -85,7 +85,7 @@ print(numbers)
 
 print(len(numbers))
 
-# ===== Задание 5: Срезы =====
+# Задание 5: Срезы
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 print(numbers[:3])
@@ -94,7 +94,7 @@ print(numbers[2:7])
 print(numbers[::2])
 print(numbers[::-1])
 
-# ===== Задание 6: Работа с кортежами =====
+# Задание 6: Работа с кортежами
 measurements = (5, 4, 6, 7, 2, 8, 10, 9)
 
 print(measurements[0])
@@ -113,7 +113,7 @@ as_list[0] = 99
 new_tuple = tuple(as_list)
 print(new_tuple)
 
-# ===== Задание 7: Встроенные функции =====
+# Задание 7: Встроенные функции
 numbers = [5, 4, 6, 7, 2, 8, 10, 9]
 
 print(len(numbers))
@@ -131,7 +131,7 @@ print(s)
 numbers.sort()
 print(numbers)
 
-# ===== Задание 8: Реализация собственных алгоритмов =====
+# Задание 8: Реализация собственных алгоритмов
 def calculate_sum(numbers):
     total = 0
     for number in numbers:
@@ -164,7 +164,7 @@ print(msum, sum(data))
 print(mmin, min(data))
 print(mmax, max(data))
 
-# ===== Задание 9: Линейный поиск =====
+# Задание 9: Линейный поиск
 def find_element(numbers, target):
     for index in range(len(numbers)):
         if numbers[index] == target:
@@ -178,7 +178,7 @@ print(find_element(data, 30))
 print(find_element(data, 50))
 print(find_element(data, 99))
 
-# ===== Задание 10: Возврат нескольких значений =====
+# Задание 10: Возврат нескольких значений
 def analyze(numbers):
     minimum = min(numbers)
     maximum = max(numbers)
@@ -196,7 +196,7 @@ print(f'{mn}')
 print(f'{mx}')
 print(f'{avg:.2f}')
 
-# ===== Задание 11: Lambda-функции =====
+# Задание 11: Lambda-функции
 numbers = [-10, 3, -2, 8, -5]
 
 normal_sorted = sorted(numbers)
@@ -205,7 +205,7 @@ print(normal_sorted)
 abs_sorted = sorted(numbers, key=lambda x: abs(x))
 print(abs_sorted)
 
-# ===== Задание 12: Самостоятельная работа =====
+# Задание 12: Самостоятельная работа
 measurements = [12, 13, 24, 55, 46, 67, 52, 87, 90, 87, 23, 18]
 
 def calculate_average(measurements):
