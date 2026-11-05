@@ -1,3 +1,4 @@
+import json
 import logging
 from pathlib import Path
 
@@ -5,10 +6,15 @@ from utils.reader import read_numbers, validate_numbers
 from utils.statistics import calculate_average, find_min, find_max
 
 
-def setup_logging():
-    Path("logs").mkdir(exist_ok=True)
+def load_config():
+    with open("config.json", "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def setup_logging(log_file):
+    log_file.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
-        filename="logs/app.log",
+        filename=log_file,
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
         encoding="utf-8",
@@ -16,10 +22,13 @@ def setup_logging():
 
 
 def main():
-    setup_logging()
-    logging.info("Программа запущена")
+    config = load_config()
+    input_file = Path(config["input_file"])
+    log_file = Path(config["log_file"])
 
-    input_file = Path("data") / "measurements.txt"
+    setup_logging(log_file)
+    logging.info("Программа запущена")
+    print("Файл данных из config.json:", input_file)
 
     try:
         numbers = read_numbers(input_file)
