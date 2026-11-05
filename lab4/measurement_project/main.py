@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from utils.reader import read_numbers
+from utils.reader import read_numbers, validate_numbers
 from utils.statistics import calculate_average, find_min, find_max
 
 
@@ -14,10 +14,11 @@ def main():
 
     try:
         numbers = read_numbers(input_file)
+        validate_numbers(numbers)
     except FileNotFoundError:
         print("Файл не найден:", input_file)
     except ValueError as error:
-        print("Файл содержит некорректные данные:", error)
+        print("Ошибка в данных:", error)
     else:
         print("Прочитано значений:", len(numbers))
         print("Среднее:", calculate_average(numbers))

@@ -4,3 +4,8 @@ def read_numbers(file_path):
         for line in file:
             numbers.append(float(line))
     return numbers
+
+
+def validate_numbers(numbers):
+    if len(numbers) == 0:
+        raise ValueError("Список измерений пуст")
