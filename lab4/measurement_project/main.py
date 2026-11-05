@@ -21,14 +21,24 @@ def setup_logging(log_file):
     )
 
 
+def print_report(numbers):
+    print("Количество значений:", len(numbers))
+    print("Минимум:", find_min(numbers))
+    print("Максимум:", find_max(numbers))
+    print("Среднее:", round(calculate_average(numbers), 2))
+
+
 def main():
-    config = load_config()
-    input_file = Path(config["input_file"])
-    log_file = Path(config["log_file"])
+    try:
+        config = load_config()
+        input_file = Path(config["input_file"])
+        log_file = Path(config["log_file"])
+    except (FileNotFoundError, ValueError, KeyError) as error:
+        print("Не удалось загрузить настройки из config.json:", error)
+        return
 
     setup_logging(log_file)
     logging.info("Программа запущена")
-    print("Файл данных из config.json:", input_file)
 
     try:
         numbers = read_numbers(input_file)
@@ -42,10 +52,8 @@ def main():
         print("Ошибка в данных:", error)
         logging.error(f"Некорректные данные: {error}")
     else:
-        print("Количество значений:", len(numbers))
-        print("Минимум:", find_min(numbers))
-        print("Максимум:", find_max(numbers))
-        print("Среднее:", calculate_average(numbers))
+        print_report(numbers)
+        logging.info("Результаты рассчитаны и выведены")
     finally:
         logging.info("Программа завершена")
 
